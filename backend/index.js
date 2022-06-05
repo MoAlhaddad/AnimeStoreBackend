@@ -13,12 +13,10 @@ app.use(cors());
 app.use("/animes", router); //localhost:5000/animes
 
 mongoose
-  .connect(
-    process.env.MONGO_URI
-  )
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("Connected To Database"))
   .then(() => {
-    app.listen(5000);
+    app.listen(process.env.PORT || 5000);
   })
   .catch((err) => console.log(err));
 
